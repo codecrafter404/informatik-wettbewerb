@@ -14,7 +14,11 @@ fn main() {
         }
     }
     println!("----[Results]----");
-    println!("{}/100 Probes succeeded ({}%)", success, success)
+    println!("{}/100 Probes succeeded ({}%) -> Probe {}", success, success, if success == 100 {
+        "works"
+    }else{
+        "doesn't work"
+    });
 
 }
 fn probe(n1: i32, n2: i32) -> bool {
@@ -41,22 +45,6 @@ fn probe(n1: i32, n2: i32) -> bool {
     //     r1, r2, top, bottom
     // );
     top == bottom
-}
-fn take_input() -> i32 {
-    print!("Input Number: ");
-    std::io::stdout().flush().unwrap();
-    let mut buffer = String::new();
-    std::io::stdin().read_line(&mut buffer).unwrap();
-    match buffer.trim().parse::<i32>() {
-        Ok(x) => {
-            if x >= 100 && x <= 999 {
-                return x;
-            } else {
-            }
-        }
-        _ => {}
-    }
-    panic!("Please input a valid number")
 }
 #[test]
 fn test() {
