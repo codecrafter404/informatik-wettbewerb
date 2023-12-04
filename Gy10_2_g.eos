@@ -1,0 +1,126 @@
+// Zerlege eine gegebene vierstellige Zahl in ihre Ziffern.
+// Zeichne diese anschließend als Zisterzienserzahl.
+
+// Anzeigefenster vorbereiten
+f:FENSTER
+Zahl_Vorgabe: Integer
+f.gitterAus()
+f.hintergrundFarbeSetzen(weiß)
+
+// Definiere die fünf möglichen Elemente, aus denen sich eine 
+// Dezimalziffer in Zisterziensterschreibweise zusammensetzt
+l_o: Linie  // Linie oben
+l_o.punkt1Setzen(-5,5)
+l_o.punkt2Setzen(5,5)
+
+l_u: Linie // Linie unten
+l_u.punkt1Setzen(-5,-5)
+l_u.punkt2Setzen(5,-5)
+
+l_ou: Linie // Linie diagonal runter
+l_ou.punkt1Setzen(-5,5)
+l_ou.punkt2Setzen(5,-5)
+
+l_uo: Linie // Linie diagonal rauf
+l_uo.punkt1Setzen(-5,-5)
+l_uo.punkt2Setzen(5,5)
+
+l_r: Linie // Linie rechts
+l_r.punkt1Setzen(5,5)
+l_r.punkt2Setzen(5,-5)
+
+// Definiere die zehn Ziffern in ihrer Standardausrichtung 
+// (oben rechts in der Zisterzienserziffer)
+z0:Gruppe // Symbol für Ziffer 0
+
+z1:Gruppe // Symbol für Ziffer 1
+z1.kopiere(l_o)
+
+z2:Gruppe // Symbol für Ziffer 2
+z2.kopiere(l_u)
+
+z3:Gruppe // Symbol für Ziffer 3
+z3.kopiere(l_ou)
+
+z4:Gruppe // Symbol für Ziffer 4
+z4.kopiere(l_uo)
+
+z5:Gruppe // Symbol für Ziffer 5
+z5.kopiere(l_uo)
+z5.kopiere(l_o)
+
+z6:Gruppe // Symbol für Ziffer 6
+z6.kopiere(l_r)
+
+z7:Gruppe // Symbol für Ziffer 7
+z7.kopiere(l_r)
+z7.kopiere(l_o)
+
+z8:Gruppe // Symbol für Ziffer 8
+z8.kopiere(l_u)
+z8.kopiere(l_r)
+
+z9:Gruppe // Symbol für Ziffer 8
+z9.kopiere(l_o)
+z9.kopiere(l_u)
+z9.kopiere(l_r)
+
+//TODO: restliche 8 Dezimalziffern ergänzen
+
+// Zeichne den mittleren Strich der Zisterzienserzahl
+Mittelstrich:Linie
+Mittelstrich.punkt1Setzen(-5,-35)
+Mittelstrich.punkt2Setzen(-5,5)
+f.zeichne(Mittelstrich)
+
+// Symbol für eine Dezimalziffer
+ZisZif_Symbol: Gruppe
+DezZiffer: Integer // eine Dezimalzahl (0...9)
+ZisZif_1:Gruppe // enthält das Einersymbol in Zisterziensernotation
+
+// die Eingabe der anzuzeigende Zahl
+Zahl_Einer: Integer
+Zahl_Einer    := 1
+DezZiffer := Zahl_Einer
+
+// Hole das entsprechende Zisterziensersymbol für diese Ziffer (0...9)
+wenn DezZiffer = 0 dann
+   ZisZif_Symbol:=z0
+*wenn
+
+// Hole das entsprechende Zisterziensersymbol für diese Ziffer (0...9)
+wenn DezZiffer = 1 dann
+   ZisZif_Symbol:=z1
+*wenn
+// Hole das entsprechende Zisterziensersymbol für diese Ziffer (0...9)
+wenn DezZiffer = 2 dann
+   ZisZif_Symbol:=z2
+*wenn
+wenn DezZiffer = 3 dann
+   ZisZif_Symbol:=z3
+*wenn
+wenn DezZiffer = 4 dann
+   ZisZif_Symbol:=z4
+*wenn
+wenn DezZiffer = 5 dann
+   ZisZif_Symbol:=z5
+*wenn
+wenn DezZiffer = 6 dann
+   ZisZif_Symbol:=z6
+*wenn
+wenn DezZiffer = 7 dann
+   ZisZif_Symbol:=z7
+*wenn
+wenn DezZiffer = 8 dann
+   ZisZif_Symbol:=z8
+*wenn
+wenn DezZiffer = 9 dann
+   ZisZif_Symbol:=z9
+*wenn
+
+
+//TODO: Restliche Ziffern ergänzen
+
+
+// TODO: ausgewählte Ziffer anzeigen
+f.zeichne(ZisZif_Symbol)

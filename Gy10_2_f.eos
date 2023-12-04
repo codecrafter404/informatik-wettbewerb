@@ -1,0 +1,51 @@
+f:FENSTER
+f.gitterAus()
+f.hintergrundFarbeSetzen(weiß)
+
+//Definion von Einzellinien für das Gesamtbild
+l_o: Linie  // Linie oben
+l_o.punkt1Setzen(-20,20)
+l_o.punkt2Setzen(20,20)
+
+l_1: Linie  // Linie rechts
+l_1.punkt1Setzen(20,20)
+l_1.punkt2Setzen(20,-20)
+
+l_2: Linie  // Linie diag. rechts -> links (Haus)
+l_2.punkt1Setzen(20,-20)
+l_2.punkt2Setzen(-20,20)
+
+l_3: Linie  // Linie diag. links -> mitte (Dach)
+l_3.punkt1Setzen(-20,20)
+l_3.punkt2Setzen(0,50)
+
+l_4: Linie  // Linie diag. links mitte -> rechts (Dach)
+l_4.punkt1Setzen(0,50)
+l_4.punkt2Setzen(20,20)
+
+l_5: Linie  // Linie diag. links rechts -> links (Haus)
+l_5.punkt1Setzen(20,20)
+l_5.punkt2Setzen(-20,-20)
+
+l_6: Linie  // Linie vert. links links -> oben (Haus)
+l_6.punkt1Setzen(-20,-20)
+l_6.punkt2Setzen(-20,20)
+
+l_7: Linie  // Linie  links links -> rechts unten (Haus)
+l_7.punkt1Setzen(-20,-20)
+l_7.punkt2Setzen(20,-20)
+
+//Definition des Gesamtbildes
+Bild:Gruppe
+Bild.kopiere(l_o)
+Bild.kopiere(l_1)
+Bild.kopiere(l_2)
+Bild.kopiere(l_3)
+Bild.kopiere(l_4)
+Bild.kopiere(l_5)
+Bild.kopiere(l_6)
+Bild.kopiere(l_7)
+
+
+//Zeichnen des Bildes
+f.zeichne (Bild)
